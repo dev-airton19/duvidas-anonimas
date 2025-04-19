@@ -3,15 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Dúvidas Anônimas</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <div class="container">
-        <h2>Escreva aqui sua dúvida</h2>
+        <h1>Escreva aqui sua dúvida</h1>
         <p>O pastor e os líderes receberão de forma completamente anônima.</p>
+
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <div class="alert">
+              {{ messages[0] }}
+            </div>
+          {% endif %}
+        {% endwith %}
+
         <form method="POST">
-            <textarea name="duvida" rows="6" required placeholder="Digite sua dúvida aqui..."></textarea><br>
+            <textarea name="mensagem" placeholder="Digite sua dúvida..." required></textarea><br>
             <button type="submit">Enviar</button>
         </form>
     </div>
