@@ -1,51 +1,175 @@
+/* Resetando margens e padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Definindo uma fonte mais moderna */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
     padding: 20px;
 }
 
+/* Centralizando o conteúdo e melhorando o layout */
 .container {
     background-color: white;
     max-width: 600px;
     margin: auto;
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
-textarea {
-    width: 100%;
-    height: 100px;
-    padding: 10px;
-    margin-top: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    resize: vertical;
+/* Cabeçalho */
+h1 {
+    color: #3b82f6;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
 }
 
-button {
+/* Estilizando o formulário */
+textarea {
+    width: 100%;
+    height: 120px;
+    padding: 12px;
     margin-top: 15px;
-    padding: 10px 20px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    resize: vertical;
+    transition: border 0.3s ease;
+}
+
+/* Efeito de foco no campo de mensagem */
+textarea:focus {
+    border: 2px solid #3b82f6;
+    outline: none;
+}
+
+/* Botão de envio */
+button {
+    margin-top: 20px;
+    padding: 12px 20px;
     font-size: 16px;
     background-color: #3b82f6;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
+/* Efeito de hover no botão */
 button:hover {
     background-color: #2563eb;
 }
 
+/* Estilo da mensagem de sucesso */
 .alert {
     background-color: #d4edda;
     color: #155724;
     padding: 10px;
-    border: 1px solid #c3e6cb;
     border-radius: 5px;
     margin-bottom: 15px;
     font-weight: bold;
+    text-align: center;
+}
+
+/* Lista de dúvidas */
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 30px;
+}
+
+li {
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+/* Efeito de hover nas dúvidas */
+li:hover {
+    transform: scale(1.05);
+    background-color: #e9ecef;
+}
+
+/* Link de voltar */
+a {
+    display: inline-block;
+    margin-top: 30px;
+    text-decoration: none;
+    padding: 12px 20px;
+    background-color: #3b82f6;
+    color: white;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+/* Efeito de hover no link */
+a:hover {
+    background-color: #2563eb;
+}
+
+/* ======== RESPONSIVIDADE (Mobile First) ======== */
+
+/* Em telas pequenas, ajustar o layout */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+        max-width: 100%;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    button {
+        width: 100%;
+        font-size: 18px;
+    }
+
+    textarea {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    li {
+        padding: 12px;
+        font-size: 14px;
+    }
+}
+
+/* Para telas menores que 480px (smartphones) */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    textarea {
+        font-size: 14px;
+        height: 100px;
+    }
+
+    button {
+        font-size: 16px;
+    }
+
+    li {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    a {
+        padding: 10px 15px;
+    }
 }
