@@ -10,15 +10,10 @@
     <div class="container">
         <h1>Escreva aqui sua dúvida</h1>
         <p>O pastor e os líderes receberão de forma completamente anônima</p>
-
         <form method="POST" action="/">
             <textarea name="mensagem" placeholder="Escreva sua mensagem aqui..." required></textarea>
             <button type="submit">Enviar</button>
         </form>
-
-        {% if mensagem_sucesso %}
-            <div class="mensagem-sucesso">{{ mensagem_sucesso }}</div>
-        {% endif %}
     </div>
 </body>
 </html>

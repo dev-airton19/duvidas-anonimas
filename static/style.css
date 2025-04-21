@@ -13,7 +13,7 @@ body {
     background-color: #f1f7f6;
 }
 
-h1 {
+h1, h2 {
     font-size: 24px;
     margin-bottom: 10px;
 }
@@ -50,13 +50,22 @@ button:hover {
     background-color: #7dc7da;
 }
 
-.mensagem-sucesso {
+.btn-voltar {
+    display: inline-block;
     margin-top: 20px;
-    color: green;
+    padding: 10px 20px;
+    background-color: #add8e6;
+    color: #000;
+    border-radius: 8px;
+    text-decoration: none;
     font-weight: bold;
+    transition: background-color 0.3s ease;
 }
 
-/* Responsividade */
+.btn-voltar:hover {
+    background-color: #87ceeb;
+}
+
 @media (max-width: 600px) {
     .container {
         margin: 50px 20px;
