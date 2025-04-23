@@ -1,10 +1,11 @@
 from flask import Flask, render_template, request
 import sqlite3
 import os
+from datetime import datetime
 
 app = Flask(__name__)
 
-# Cria o banco e a tabela somente quando necessário
+# Cria e salva no banco com data e hora
 def salvar_duvida(mensagem):
     criar_banco = not os.path.exists("duvidas.db")
     conn = sqlite3.connect("duvidas.db")
@@ -14,11 +15,13 @@ def salvar_duvida(mensagem):
         cursor.execute('''
             CREATE TABLE IF NOT EXISTS duvidas (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
-                mensagem TEXT NOT NULL
+                mensagem TEXT NOT NULL,
+                data_envio TEXT
             )
         ''')
 
-    cursor.execute("INSERT INTO duvidas (mensagem) VALUES (?)", (mensagem,))
+    data_envio = datetime.now().strftime('%d/%m/%Y %H:%M:%S')
+    cursor.execute("INSERT INTO duvidas (mensagem, data_envio) VALUES (?, ?)", (mensagem, data_envio))
     conn.commit()
     conn.close()
 
